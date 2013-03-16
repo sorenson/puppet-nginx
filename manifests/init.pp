@@ -49,8 +49,9 @@ class nginx {
   }
 
   package { 'boxen/brews/nginx':
-    ensure => '1.2.7-boxen1',
-    notify => Service['dev.nginx']
+    ensure          => '1.2.7-boxen1',
+    notify          => Service['dev.nginx'],
+    install_options => '--with-passenger',
   }
 
   # Remove Homebrew's nginx config to avoid confusion.
